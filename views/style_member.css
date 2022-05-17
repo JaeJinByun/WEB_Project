@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.table {
+	border-radius: 20px; 
+	border: 1px solid black;
+}
+.minitable{
+	border-radius: 20px; 
+	border: 1px solid black;
+	width: 320px;
+  	height: 450px;
+  	border: 1px solid #CCC;
+  	background: url(https://www.wallpaperuse.com/wallp/8-80314_m.jpg) center center no-repeat;
+  	background-size: cover;
+ 	margin: 30px auto;
+  	border-radius: 20px; 
+}
+
+.login {
+  width: 320px;
+  height: 450px;
+  border: 1px solid #CCC;
+  background: url(https://media4.giphy.com/media/BHNfhgU63qrks/giphy.gif) center center no-repeat;
+  background-size: cover;
+  margin: 30px auto;
+  border-radius: 20px; 
+}
+.login .table {
+  width: 100%;
+  height: 100%;
+  padding: 15px 25px;
+  border-radius: 20px;
+}
+
+.login2 {
+  width: 470px;
+  height: 550px;
+  border: 1px solid #CCC;
+  background: url(https://media4.giphy.com/media/BHNfhgU63qrks/giphy.gif) center center no-repeat;
+  background-size: cover;
+  margin: 30px auto;
+  border-radius: 20px; 
+}
+
+.login2 .table2 {
+  width: 100%;
+  height: 100%;
+  padding: 15px 25px;
+  border-radius: 20px;
+}
+
+.login2 .table2 .text {
+	color: #FFF;
+	font-size: 14px;
+	
+}
+
+.login2 .table2 .inputtext2 {
+  width: 60%;
+  height: 30px;
+  margin-top: 20px;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.login2 .table2 .inputemail {
+  width: 50%;
+  height: 23px;
+  margin-top: 20px;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.login .table {	  
+	  border-collapse:separate;
+	  border-radius:17px;  
+	  
+}
+
+.login .table #title {
+  color: #FFF;
+  text-align: center;
+  font-weight: normal;
+  font-size: 16px;
+  margin-top: 60px;
+  margin-bottom: 80px; 
+  padding: 10 15px;
+}
+
+.login .table #userid {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.login .table #passwd {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.login .table #passwd {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.login .table .text {
+	color: #FFF;
+	font-size: 14px;
+	
+}
+
+.input{
+  width: 60%;
+  height: 30px;
+  margin-top: 20px;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 15px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+
+
+body{
+	background-color : #ebeef3;
+}
+
+
+h2 {
+	align-content : center;
+	color : #8000ff;
+	text-decoration : none;
+	transition : 1s;
+	
+}
+
+h2:hover {
+	text-shadow: 0 0 .1em, 0 0 .3em;
+}
+
+.input{
+	background-color: #ffcad3;
+}
+
+.inputtext{
+	background: white;
+	color : #800000;
+	text-decoration : none;
+	transition : 2s;
+	
+}
+
+.input:hover{	
+	text-shadow: 0 0 .1em, 0 0 .1em;
+}
+
+.btn {
+	height:100%;
+	display:flex;
+	align-items: center;
+	justify-content : center;
+}
+.inputbutton {
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+  	outline: none;
+}
+.inputbutton:hover{
+	background-color : #8080ff;
+	box-shadow : 0px 15px 20px rgba(164, 138, 236, 0.4);
+	color : #fff;
+	transform: translateY(-3px);
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
