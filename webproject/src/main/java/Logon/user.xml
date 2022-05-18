@@ -3,28 +3,68 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="Member">
+<mapper namespace="DB">
 	<insert id="insertMember" parameterType="logon.LogonDataBean">
-		insert into member values( #{id}, #{passwd}, #{name}, 
-		#{jumin1}, #{jumin2}, #{tel, jdbcType=VARCHAR}, #{email, jdbcType=VARCHAR}, 
-		#{reg_date} )	
+		insert into membertest values( #{id}, #{adminck,jdbcType=INTEGER}, #{passwd,jdbcType=VARCHAR},
+		 #{tel}, #{email}, #{currency} )	
 	</insert>
 	<select id="check" parameterType="String" resultType="int">
-		select count(*) from member where id=#{id}
+		select count(*) from membertest where id=#{id}
 	</select>
 	<select id="getMember" parameterType="String" resultType="logon.LogonDataBean">
-		select * from member where id=#{id}
+		select * from membertest where id=#{id}
 	</select>
 	
 	<delete id ="deleteMember" parameterType="String">
-		delete from member where id = #{id}
+		delete from membertest where id = #{id}
 	</delete>
 	
 	<update id="modifyMember" parameterType="logon.LogonDataBean">
-		update member set passwd=#{passwd}, tel=#{tel,jdbcType=VARCHAR}, email=#{email,jdbcType=VARCHAR} where id = #{id}
+		update membertest set passwd=#{passwd}, tel=#{tel,jdbcType=VARCHAR}, email=#{email,jdbcType=VARCHAR} where id = #{id}
 	</update>
-	
-</mapper>  
+
+
+      
+      
+<!-- board -->
+  	<select id="getCount" resultType="int">
+  		select count(*) from board 
+  	</select>
+  	
+  	<select id="getArticles" resultType="board.BoardDataBean" parameterType="Map">
+  	select num,writer,email,subject,passwd,
+			reg_date,content,ip,readcount,r 
+			from (select num,writer,email,subject,passwd,reg_date,content,ip,readcount,rownum r from 
+			(select num,writer,email,subject,passwd,reg_date
+			,content,ip,readcount from board order by num desc) )
+			where r &gt;= #{start} and r &lt;= #{end}
+  	</select>
+  	
+  	<select id="getArticle"  resultType="board.BoardDataBean" parameterType="int">
+  		select * from board where num=#{num} 
+  	</select>
+  	
+  	<update id="addCount" parameterType="int">
+  		update board set readcount = readcount + 1 where num =#{num}
+  	</update>  
+  	
+  	<select id="maxNum" resultType="int">
+  		select max(num) from board
+  	</select>
+  	
+  	<insert id="insertArticle" parameterType="board.BoardDataBean">
+  		insert into board ( num, writer, email, subject, passwd, reg_date, content, ip) 
+		values(board_seq.NEXTVAL, #{writer}, #{email, jdbcType=VARCHAR}, #{subject}, #{passwd}, #{reg_date},  #{content}, #{ip})
+  	</insert> 	
+  	
+  	<delete id="deleteArticle" parameterType="int">
+  		delete from board where num = #{num}
+  	</delete>
+  	
+  	<update id="modifyArticle" parameterType="board.BoardDataBean">
+  		update board set email=#{email, jdbcType=VARCHAR}, subject=#{subject}, content=#{content}, passwd=#{passwd} where num=#{num}
+  	</update>
+ </mapper>
 
 
 

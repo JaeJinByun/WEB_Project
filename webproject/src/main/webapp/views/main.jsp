@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+<script src="/webproject/views/script.js"></script>
+<script src="/webproject/jquery-3.6.0.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +19,6 @@
         @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
     </style>
     <link rel="stylesheet" href="./style.css">
-    <script src="./main.js" defer></script> 
-
 </head>
 <body>
     <!-- navbar -->
@@ -24,14 +28,28 @@
                 <img src="img/logo.png" alt="Logo" width="400" height="200">
             </a>
         </div>
+        <!-- 로그인이 안됐을때 -->
+        <c:if test="${sessionScope.id eq null }">
         <div>
             <ul class="navbar__menu">
                 <li class="navbar__menu__item">Collection</li>
                 <li class="navbar__menu__item">My Page</li>
-                <li class="navbar__menu__item">Board</li>
+                <li class="navbar__menu__item" onclick="location='board.do'">Board</li>
                 <li class="navbar__menu__item" onclick="location='loginPage.do'">Sign In</li>
             </ul>
+        </div> 
+        </c:if>
+        <!-- 로그인이 됐을때 -->
+        <c:if test="${sessionScope.id ne null }">
+        <div>
+            <ul class="navbar__menu">
+                <li class="navbar__menu__item">Collection</li>
+                <li class="navbar__menu__item">My Page</li>
+                <li class="navbar__menu__item" onclick="location='board.do'">Board</li>
+                <li class="navbar__menu__item" onclick="location='logOut.do'">Logout</li>
+            </ul>
         </div>
+        </c:if>
     </nav>
     <!-- Home -->
     <section id="home">
