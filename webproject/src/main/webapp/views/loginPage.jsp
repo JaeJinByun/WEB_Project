@@ -33,35 +33,29 @@
 	    <div class="arm arm-r"></div>
 	  </div>
 	</div>
+	<form class="login" name="loginform" method="post" action="loginPro.do" onsubmit="return maincheck()">
 	<div class="form">
 		<h2>Welcome TO OwlBox</h2>
 	  	<div class="control">
 	    	<label for="id" class="fa fa-envelope"></label>
-	   	 	<input id="id" placeholder="ID" type="text"></input>
+	   	 	<input id="id" placeholder="ID" type="text" name="id"></input>
 		</div>
 		<div class="control">
 	  		<label for="password" class="fa fa-asterisk"></label>
-	  		<input id="password" placeholder="Password" type="password"></input>
+	  		<input id="password" placeholder="Password" type="password" name="passwd"></input>
 		</div>	
-		<div class="button">
-						<!-- 
-						<div class="text-box">
-    						<a href="#" class="btn btn-white btn-animate">click me</a>
-						</div>
-						-->
-			<form class="login" name="loginform" method="post" action="loginPro.do" onsubmit="return maincheck()">
-				<table class="table">		
+		<div class="button">					
+			<table class="table">		
 				<tr>		
 					<th><div class="text-box"><a href="javascript:loginform.submit();" class="btn btn-white btn-animate">Sign in</a></div></th>	
 				</tr>
-				
 				<tr>				
 					<th><div class="text-box2"><a href="#" class="btn btn-white btn-animate" onclick="location='inputForm.do'">Sign up</a></div></th>	
 				</tr>
-				</table>
-			</form>
-		</div>
-	</div>	
+			</table>
+		</div>	
+	</div>
+</form>
 </body>
 
 
