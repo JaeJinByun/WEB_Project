@@ -5,7 +5,7 @@
 
 <configuration>
 	<!-- DB정보 -->
-	<properties resource="logon/db.properties"/>
+	<properties resource="DB/db.properties"/>
 
 	<!-- DB연결 -->
 	<environments default="development">
@@ -23,7 +23,7 @@
 	
 	<!-- Mapper 설정 -->
 	<mappers>
-		<mapper resource="logon/user.xml"/>
+		<mapper resource="DB/user.xml"/>
 	</mappers>
 
 </configuration>  

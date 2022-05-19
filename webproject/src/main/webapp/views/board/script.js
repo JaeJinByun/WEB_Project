@@ -1,8 +1,10 @@
 //글 작성
-var writerstr = "작성자를 입력하세요.";
+var writerstr  = "작성자를 입력하세요.";
 var subjectstr = "글제목을 입력하세요.";
 var contentstr = "글내용을 입력하세요.";
-var passwdstr = "비밀번호를 입력하세요.";
+var passwdstr  = "비밀번호를 입력하세요.";
+var replystr   = "공백으로 작성하지 마세용";
+
 
 var passwderror = "입력한 비밀번호가 다릅니다.\n다시확인하세요.";
 var deleteerror = "글삭제에 실패했습니다.\n잠시후 다시시도하세요.";
@@ -13,7 +15,7 @@ function erroralert(msg){
 	history.back(); //이전으로 돌려보내기
 }
 
-
+//글 수정 체그
 function modifycheck(){
 	if( !modifyform.subject.value ) {
 		alert(subjectstr);
@@ -50,6 +52,45 @@ function writecheck(){
 		
 	}	
 }
+
+//댓글 안쓰면 막기
+function replyCheck(){
+	if( !contentForm.reply.value){
+		alert(replystr);
+		return false;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

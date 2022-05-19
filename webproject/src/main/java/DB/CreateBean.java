@@ -1,4 +1,4 @@
-package logon;
+package DB;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +8,10 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import board.BoardDBBean;
 import board.BoardDao;
+import board.ReplyDBBean;
+import board.ReplyDao;
+import logon.LogonDBBean;
+import logon.LogonDao;
 
 @Configuration
 public class CreateBean {
@@ -20,6 +24,10 @@ public class CreateBean {
 	@Bean
 	public BoardDao boardDao() {
 		return new BoardDBBean();
+	}
+	@Bean
+	public ReplyDao replyDao() {
+		return new ReplyDBBean();
 	}
 	
 	@Bean

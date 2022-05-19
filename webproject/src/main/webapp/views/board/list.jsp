@@ -4,10 +4,41 @@
 <%@page import="board.BoardDBBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ include file="setting.jsp" %>
 <link href="/webproject/views/board/style_board.css" rel="stylesheet" type="text/css">
 <script src="/webproject/views/board/script.js"></script>
+<script src="/webproject/jquery-3.6.0.js"></script>
+
+<script type="text/javascript">
+	//<!--
+	//포커싱 할때의 미디어 처리
+	$(document).ready(
+		function() {
+			$('a').on('mouseover', () => {
+				  $('*').addClass('password');
+				}).on('mouseout', () => {
+				 $('*').removeClass('password');
+				});;
+				
+			jQuery(function($) {
+			    $("body").css("display", "none");
+			    $("body").fadeIn(1200);
+			    $("a.transition").click(function(event){
+			        event.preventDefault();
+			        linkLocation = this.href;
+			        $("body").fadeOut(1000, redirectPage);
+			    });
+			    function redirectPage() {
+			    window.location = linkLocation;
+			    }
+			});	
+				
+			}
+		);
+ 
+	//-->
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,6 +88,14 @@
 
 
 <!-- 게시판 -->
+<div class="owl">
+	  <div class="hand"></div>
+	  <div class="hand hand-r"></div>
+	  <div class="arms">
+	    <div class="arm"></div>
+	    <div class="arm arm-r"></div>
+	  </div>
+</div>
 <table>
 	<tr>
 		<td colspan="6" align="right">
@@ -66,7 +105,6 @@
    				 if( !<%=session.getAttribute("id")%>){
 	        		 alert("로그인을 해주세요.");					 
    				 }
-        		 //e.preventDefault();   // use this to NOT go to href site
     			}
 			</script>
 		</td>
@@ -96,7 +134,6 @@
 					<c:set var="number" value="${number-1}"/>
 				</td>	
 				<td>
-				
 					<c:if test="${dto.readcount ne -1}">		
 						<a href="content.do?num=${dto.num}&pageNum=${pageNum}&number=${number+1}">
 							${dto.subject}

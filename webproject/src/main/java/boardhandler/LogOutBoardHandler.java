@@ -13,9 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import DB.Commandhandler;
 import board.BoardDao;
 import board.BoardDataBean;
-import logonhandler.Commandhandler;
 
 @Controller
 public class LogOutBoardHandler implements Commandhandler{

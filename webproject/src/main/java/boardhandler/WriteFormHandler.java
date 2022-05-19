@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import DB.Commandhandler;
 import board.BoardDao;
 import logon.LogonDao;
 import logon.LogonDataBean;
-import logonhandler.Commandhandler;
 
 @Controller
 public class WriteFormHandler implements Commandhandler{
@@ -34,15 +34,24 @@ public class WriteFormHandler implements Commandhandler{
 		
 		//여기서 작성자정보 받아서 
 		//작성자 이메일 뽑아와야함 
+		
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
+
+		if(session.getAttribute("id") == null || session.getAttribute("id") == "") {
+			System.out.println("세션 없음");
+			return new ModelAndView("/views/board/writeForm");
+		
+		}else {
+			String id = (String) session.getAttribute("id");
+			dto = logonDao.getMember(id);
+			String email = dto.getEmail();
+			
+			request.setAttribute("id", id);
+			request.setAttribute("email", email);			
+
+			return new ModelAndView("/views/board/writeForm");
+		}
 	
-		dto = logonDao.getMember(id);
-		String email = dto.getEmail();
 		
-		request.setAttribute("id", id);
-		request.setAttribute("email", email);
-		
-		return new ModelAndView("/views/board/writeForm");
 	}
 }
