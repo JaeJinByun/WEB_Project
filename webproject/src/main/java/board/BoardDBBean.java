@@ -3,7 +3,8 @@ package board;
 import java.util.List;
 import java.util.Map;
 
-import logon.SqlMapClient;
+import DB.SqlMapClient;
+
 
 //싱글톤 패턴 
 public class BoardDBBean implements BoardDao{

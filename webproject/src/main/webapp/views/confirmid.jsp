@@ -4,7 +4,7 @@
 <!--  조각코드를 삽입 //공통코드 사용하기 위함 예를들어 변수  -->
 <%@ include file="setting.jsp" %> 
 <!-- 만들어둔 css파일 사용 -->
-<link href="${project}/style_member.css" rel="stylesheet" type="text/css"	>
+<link href="${project}/style_member_owl.css" rel="stylesheet" type="text/css"	>
 <script src="${project}/script.js"></script>
 
 <h2 align="center">${page_confirm}</h2>

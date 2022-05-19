@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="/webproject/views/script.js"></script>
+<script src="/webproject/jquery-3.6.0.js"></script>
 
-
-<c:set var="project" value="/boardEx/board" />
+<c:set var="project" value="/webproject/views/board" />
 
 <c:set var="msg_list_x" value="게시판에 글이 없습니다. 글쓰기를 눌러 주세요." />
 <c:set var="msg_passwd" value="비밀번호를 확인해주세요" />

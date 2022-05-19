@@ -18,5 +18,6 @@
 	<context:component-scan base-package="logonhandler"/>
 	<context:component-scan base-package="board"/>
 	<context:component-scan base-package="boardhandler"/>
+	<context:component-scan base-package="DB"/>
 	
 </beans>

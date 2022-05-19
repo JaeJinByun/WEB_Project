@@ -1,5 +1,7 @@
 package logon;
 
+import DB.SqlMapClient;
+
 //DAO = Data Access Object
 //싱글톤 패턴
 

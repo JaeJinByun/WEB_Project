@@ -1,4 +1,4 @@
-package logon;
+package DB;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -12,7 +12,7 @@ public class SqlMapClient {
 	private static SqlSession sqlSession;
 	static {
 		try {
-			Reader reader = Resources.getResourceAsReader( "logon/sqlMapConfig.xml" );
+			Reader reader = Resources.getResourceAsReader( "DB/sqlMapConfig.xml" );
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build( reader );
 			sqlSession = factory.openSession( true );
 		} catch( IOException e ) {

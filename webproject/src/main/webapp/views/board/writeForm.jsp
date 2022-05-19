@@ -37,7 +37,7 @@
 		</tr>
 		<tr>
 			<th>${str_content}</th>
-			<td><textarea name="content" rows="10" cols="40" rows="15"></textarea></td>
+			<td><textarea name="content" rows="15" cols="40"></textarea></td>
 		</tr>
 		<tr>
 			<th>${str_passwd}</th>

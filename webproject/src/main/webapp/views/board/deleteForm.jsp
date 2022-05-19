@@ -6,6 +6,7 @@
 <link href="${project}/style_board.css" rel="stylesheet" type="text/css">
 <script src="${project}/script.js"></script>
 
+    
 <h2>${page_delete}</h2>
 
 <form name="passwdform" method="post" action="deletePro.do">
