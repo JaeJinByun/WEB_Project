@@ -41,17 +41,81 @@ public class ReplyProHandler implements Commandhandler{
 		int board_no = Integer.parseInt(request.getParameter("boardnum"));
 		dto.setBoard_no(board_no);
 		
-//		replyDao.addReply(dto);
+		replyDao.addReply(dto);
 		
 		
 		return new ModelAndView("redirect:content.do?num="+board_no+"&pageNum="+pageNum+"&number="+number);
 	}
 	
-	@RequestMapping("/views/rereplyPro.do")
 	
+	@RequestMapping("/views/rreplyPro.do")
+	public void RreplyPro(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		
+		ReplyDataBean dto = new ReplyDataBean();
+		
+		//대댓글 내용
+		String text = request.getParameter("text");
+		dto.setRe_content(text);
+		
+		//부모댓글 번호
+		int p_reply_no = Integer.parseInt(request.getParameter("p_reply_no"));
+		dto.setGrp(p_reply_no);
+		
+		//게시글번호
+		int board_no = Integer.parseInt(request.getParameter("board_no"));
+		dto.setBoard_no(board_no);
+		
+		//아이디
+		String id 	 = request.getParameter("id");
+		dto.setId(id);
+			
+		//해당 댓글의 grps(그룹내에서의 순서) 뽑아서 가져오기
+		int grps = replyDao.getGrps(dto) + 1;
+		dto.setGrps(grps);
+		dto.setRe_level(1);
+		
+		replyDao.addRe_Reply(dto);
+		
+	}
+	
+	@RequestMapping("/views/replyDeletePro.do")
+	public void RreplyDeletePro(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ReplyDataBean dto = new ReplyDataBean();
+		//모댓글인지 대댓글인지 구별 ㄱ
+		
+		int re_no = Integer.parseInt(request.getParameter("re_no"));
+		int result = replyDao.checkReply(re_no);
+		
+		if(result == 0) {
+			replyDao.deleteReplyP(re_no);
+		}else {
+			replyDao.deleteReply(re_no);
+		}
+		
+	}
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
