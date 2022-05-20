@@ -9,8 +9,15 @@ public class ReplyDataBean {
 	private int re_level; 			//댓글인지 댓글의 답글인지 구분 0=댓글 1=댓글의 답글
 	private String id;				//작성자
 	private int board_no; 			//게시글 번호  
-	private int grp;				//댓글 그룹번호
+	private int grp;				//댓글 그룹번호 <= 댓글을 달 부모 댓글의 번호가 들어감
 	private int grps;				//그룹 안에서의 순서
+	private int dcheck;				//삭제된 댓글인지 구분
+	public void setDcheck(int dcheck) {
+		this.dcheck = dcheck;
+	}
+	public int getDcheck() {
+		return dcheck;
+	}
 	public int getRe_no() {
 		return re_no;
 	}

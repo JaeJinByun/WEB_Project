@@ -79,6 +79,27 @@
 		values ( reply_seq.nextval , #{re_content} , #{id} , #{board_no})
 	</insert>
   	
+  	<select id="getGrps" parameterType="int" resultType="int">
+  		select NVL(max(grps),0) from reply where board_no = #{board_no} and grp=#{grp}
+  	</select>
+  	
+  	<insert id="addRe_Reply" parameterType="board.ReplyDataBean">
+		insert into reply (re_no, re_content,re_level, id, board_no, grp , grps )
+		values ( reply_seq.nextval , #{re_content} ,#{re_level}, #{id} , #{board_no}, #{grp} , #{grps} )
+	</insert>
+  	
+  	<select id="checkReply" parameterType="int" resultType="int">
+  		select re_level from reply where re_no = #{re_no}
+  	</select>
+  	
+  	<update id="deleteReplyP">
+  		update reply set dcheck = -1, re_content = '삭제된 댓글입니다.' where re_no = #{re_no}
+  	</update>
+  	
+  	<delete id="deleteReply">
+  		delete from reply where re_no = #{re_no}
+  	</delete>
+  	
  </mapper>
 
 
