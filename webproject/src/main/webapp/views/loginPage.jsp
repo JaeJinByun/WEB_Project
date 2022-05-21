@@ -34,6 +34,7 @@
 	  </div>
 	</div>
 	<form class="login" name="loginform" method="post" action="loginPro.do" onsubmit="return maincheck()">
+	<div class="left">sads</div>
 	<div class="form">
 		<h2>Welcome TO OwlBox</h2>
 	  	<div class="control">

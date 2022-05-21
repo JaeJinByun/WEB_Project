@@ -3,11 +3,13 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
  body {
- 	 background-image : url('img/backgroundImg.jpg');
+ 	 background : url('img/backgroundImg.jpg');
      background-size  : cover;
      font-family: 'Roboto', sans-serif;
      font-size: 14px;
+    
 }
+
  .owl {
      margin: auto;
      width: 211px;
@@ -61,14 +63,31 @@
  .owl .arms .arm.arm-r.password {
      transform: translateX(-40px) translateY(-40px) scaleX(-1);
 }
+
+div.left {
+        margin: auto;
+    	margin-top: -9px;
+     	margin-left: 400px;
+        float: left;
+        box-sizing: border-box;
+        width: 400px;
+     	padding: 120px;
+     	background-color: #400040;
+     	
+}
+
+
 /* 로그인 페이지 스타일 */
  .form {
      margin: auto;
      margin-top: -9px;
-     padding: 60px;
-     background-color: #ffc1ff;
-     width: 200px;
-     
+     margin-right: 400px;
+     padding: 120px;
+     background-color: #ffffff;
+     width: 400px;
+     float: right;
+     box-sizing: border-box;
+    
 }
  .form hr{
   	 position: inherit;
@@ -194,7 +213,7 @@
 }
 
 .btn-white {
-  background-color: #fff;
+  background-color: #c0c0c0;
   color: #777;
 }
 
@@ -212,7 +231,7 @@
 }
 
 .btn-white::after {
-  background-color: #fff;
+  background-color: #808080;
 }
 
 .btn:hover::after {
@@ -235,6 +254,40 @@
     transform: translateY(0px);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
