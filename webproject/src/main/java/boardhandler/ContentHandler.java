@@ -1,4 +1,4 @@
- package boardhandler;
+package boardhandler;
 
 import java.util.List;
 
@@ -34,14 +34,14 @@ public class ContentHandler implements Commandhandler{
 		
 		int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum =  request.getParameter("pageNum");				
-		int bnumber = Integer.parseInt(request.getParameter("bnumber")); //글번호
+		int bnumber = Integer.parseInt(request.getParameter("bnumber")); //湲�踰덊샇
 		
-		//해당 게시글의 댓글 개수
+		//�빐�떦 寃뚯떆湲��쓽 �뙎湲� 媛쒖닔
 		int count = 0;
-		int size = 5;	//한 페이지에 size개씩
+		int size = 5;	//�븳 �럹�씠吏��뿉 size媛쒖뵫
 		int start = 0;
 		int end = 0;
-		int currentPage = 1;	//현재 페이지
+		int currentPage = 1;	//�쁽�옱 �럹�씠吏�
 		int pageSize = 3;		// [1] [2] [3] [4] [5]
 		
 		count = replyDao.getReplyCount(num); 	
@@ -51,13 +51,13 @@ public class ContentHandler implements Commandhandler{
 		if(currentPage == 0) {
 			currentPage = 1;
 		}
-		start = (currentPage - 1) * size + 1;		// ex) 4번 페이지는 31~40의 번호를 가진 게시글이 나와야함
+		start = (currentPage - 1) * size + 1;		// ex) 4踰� �럹�씠吏��뒗 31~40�쓽 踰덊샇瑜� 媛�吏� 寃뚯떆湲��씠 �굹���빞�븿
 		end = start + size -1;						// 
 		
 		if( end > count ) end = count;
-		int number = count - (currentPage-1)*size; 	// ex) 50 - (5-1)*10  = 나온값부터 보겠다.  
+		int number = count - (currentPage-1)*size; 	// ex) 50 - (5-1)*10  = �굹�삩媛믩��꽣 蹂닿쿋�떎.  
 		
-		int startPage = (currentPage/pageSize)*pageSize  + 1; //ex 2 페이지 보겠다  
+		int startPage = (currentPage/pageSize)*pageSize  + 1; //ex 2 �럹�씠吏� 蹂닿쿋�떎  
 		if(startPage%pageSize == 0) startPage -= pageSize;
 		
 		int endPage = startPage + pageSize -1;
@@ -66,18 +66,18 @@ public class ContentHandler implements Commandhandler{
 		
 
 		BoardDataBean dto = boardDao.getArticle(num);
-		if(!request.getRemoteAddr().equals(dto.getIp())){ // 다른사람이 읽었을때만 
-			boardDao.addCount(num); //어떤 글의 조회수를 처리할꺼냐 
+		if(!request.getRemoteAddr().equals(dto.getIp())){ // �떎瑜몄궗�엺�씠 �씫�뿀�쓣�븣留� 
+			boardDao.addCount(num); //�뼱�뼡 湲��쓽 議고쉶�닔瑜� 泥섎━�븷爰쇰깘 
 		}
 		
 		request.setAttribute("count", count);
 		
 		request.setAttribute("number", number);		
-		request.setAttribute("currentPage", currentPage); //댓글 현재 페이지
-		request.setAttribute("pageSize", pageSize);		  //총 페이지 사이즈
-		request.setAttribute("startPage", startPage);	  //시작 페이지
-		request.setAttribute("endPage", endPage);		  //끝나는 페이지
-		request.setAttribute("pageCount", pageCount);	  //페이지 수
+		request.setAttribute("currentPage", currentPage); //�뙎湲� �쁽�옱 �럹�씠吏�
+		request.setAttribute("pageSize", pageSize);		  //珥� �럹�씠吏� �궗�씠利�
+		request.setAttribute("startPage", startPage);	  //�떆�옉 �럹�씠吏�
+		request.setAttribute("endPage", endPage);		  //�걹�굹�뒗 �럹�씠吏�
+		request.setAttribute("pageCount", pageCount);	  //�럹�씠吏� �닔
 		
 		
 		request.setAttribute("bnumber", bnumber);
@@ -97,9 +97,9 @@ public class ContentHandler implements Commandhandler{
 		
 		/*
 		int board_no = dto.getNum();
-		//댓글 가져오기 
+		//�뙎湲� 媛��졇�삤湲� 
 		List<ReplyDataBean> replydtos = replyDao.getReplys(board_no);
-		request.setAttribute("rdtos", replydtos); //리플들 보냄
+		request.setAttribute("rdtos", replydtos); //由ы뵆�뱾 蹂대깂
 		*/
 		
 		return new ModelAndView("/views/board/content");
