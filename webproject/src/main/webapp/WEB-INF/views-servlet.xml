@@ -20,4 +20,5 @@
 	<context:component-scan base-package="boardhandler"/>
 	<context:component-scan base-package="DB"/>
 	
+	
 </beans>

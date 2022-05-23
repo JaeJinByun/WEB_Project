@@ -1,0 +1,920 @@
+@charset "UTF-8";
+/* global */
+:root {
+    --color-white: #ffffff;
+    --color-light-white: #eeeeee;
+    --color-dark-white: #bdbdbd;
+    --color-pink: #fe918d;
+    --color-dark-pink: #ff6863;
+    --color-dark-grey: #4d4d4d;
+    --color-grey: #616161;
+    --color-light-grey: #7c7979;
+    --color-blue: #73aace;
+    --color-yellow: #fff7d1;
+    --color-orange: #feb546;
+    --color-black: #000000;
+
+    --color-pink-1 : #e28f90;
+    --color-pink-2 : #cd8796;
+    --color-pink-3 : #9c7596;
+    --color-violet-1 : #6e6b9d;
+    --color-violet-2 : #696293;
+    --color-violet-3 : #5c5689;
+
+
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+
+    --size-border-radius: 10px;
+
+    --animation-duration: 300ms;
+}
+
+* {
+    /* 패딩과 보더웨이트를 줘도 박스 모양이 늘어나지않고 유지되도록 */
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: var(--font-large);
+    font-weight: var(--weight-bold);
+    color : var(--color-black);
+}
+h2{
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+    color : var(--color-black);
+}
+h3{
+    font-size: var(--font-regular);
+    font-weight: var(--weight-regular);
+    color : var(--color-black);
+}
+p{
+    font-size: var(--font-regular);
+    font-weight: var(--weight-regular);
+    color : var(--color-black);
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    cursor : default;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+button{
+    color: var(--color-black);
+    background-color: transparent;
+    box-shadow: 0 2px 2px #999;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--size-border-radius);
+    outline: none;
+    text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+button:active {
+	transform: scale(0.95);
+}
+figure:active{
+    transform: scale(0.95);
+}
+.navbar__menu li:active{
+    transform: scale(0.95);
+}
+p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.txt-center{
+    text-align: center;
+}
+.txt-right{
+    text-align: right;
+}
+
+/* section common */
+.section{
+    text-align: center;
+    padding: 50px;
+    margin: auto;
+}
+.section__container{
+    max-width: 1200px;
+    margin : auto;
+}
+
+/* 전체 navbar */
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--color-violet-3);
+    transition: all var(--animation-duration) ease-in-out;
+    z-index: 1;
+}
+
+#navbar.navbar--trans {
+    background: linear-gradient(#655885, #e39d8d);
+    opacity: 0.8;
+    padding : 0;
+    margin-top: 0;
+}
+#navbar.navbar--trans img {
+    width : 100px;
+    height : 50px;
+    transition: all var(--animation-duration) ease-in-out;
+}
+
+.navbar__logo {
+    font-family: 'PT Serif', serif;
+    font-size: var(--font-large);
+    margin-left: 10%;
+}
+.navbar__menu {
+    display: flex;
+    margin-right: 10%;
+}
+.navbar__menu__item {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: var(--size-border-radius);
+    border: 1px solid transparent;
+}
+.navbar__menu__item.active {
+    color: var(--color-white);
+    border: 2px solid var(--color-violet-1);
+    border-radius: var(--size-border-radius);
+}
+.navbar__menu__item:hover {
+    background-color: var(--color-violet-1);
+    color: var(--color-white);
+    border-radius: var(--size-border-radius);
+    border: 2px solid var(--color-violet-1);
+}
+
+/* home (회원 프로필 동그란 사진 보이는 부분)*/
+#home {
+    background: url("img/Cloud_night.png") center/cover no-repeat;
+    padding: 20px;
+    padding-top: 400px;
+    text-align: center;
+}
+.home__avater {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid var(--color-light-white);
+}
+/* others (다른회원의 콜렉션 들어갔을 때 홈 영역)*/
+#others-home {
+    background: url("img/coll-img.png") center/cover no-repeat;
+    padding: 20px;
+    padding-top: 400px;
+    text-align: center;
+}
+.others-home__avater {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid var(--color-light-white);
+}
+
+/* footer */
+#foot{
+    width: 100%;
+    height : 300px;
+    background: url("img/forest_night.png") center/cover no-repeat;
+    background-position-y: -230px;
+}
+
+/* archives (마이페이지의 메뉴 버튼들 보이는 부분)*/
+#archives{
+    background: linear-gradient(#fcb08f, #f8baaf);
+}
+.category__btn{
+    font-size: var(--font-regular);
+    font-weight: var(--weight-regular);
+    margin: 24px;
+    padding: 15px 25px;
+}
+.category__btn:hover{
+    background: var(--color-white);
+    color: var(--color-violet-3);
+}
+
+/* archives - my collection (내가 만든 콜렉션 보이는 부분)*/
+/* archives - likes (좋아요 누른 NFT 보이는 부분)*/
+.about__disc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 50px 0;
+}
+.about__disc h2{
+    margin-right: 25px;
+}
+.about__disc button{
+    height: 50px;
+    width: 50px;
+    margin-left: 5px;
+    font-size: var(--font-medium);
+}
+.about__disc button:hover{
+    background: var(--color-white);
+    color: var(--color-pink-1);
+}
+
+.about__collection{
+    display: flex;
+    justify-content: center;
+    padding : 40px;
+}
+.snip1336 {
+    font-family: 'Roboto', Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 230px;
+    max-width: 315px;
+    width: 100%;
+    color: #ffffff;
+    text-align: left;
+    line-height: 1.4em;
+    background-color: #141414;
+    border-radius: var(--size-border-radius);
+    cursor: pointer;
+}
+.snip1336 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.snip1336 img {
+    max-width: 100%;
+    height : 300px;
+    vertical-align: top;
+    opacity: 0.85;
+}
+.snip1336 figcaption {
+    width: 100%;
+    background-color: #141414;
+    padding: 25px;
+    position: relative;
+}
+.snip1336 figcaption:before {
+    position: absolute;
+    content: '';
+    bottom: 100%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 55px 0 0 400px;
+    border-color: transparent transparent transparent #141414;
+}
+.snip1336 .profile {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 25px;
+    z-index: 1;
+    max-width: 90px;
+    max-height: 90px;
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.snip1336 h2 {
+    margin: 0 0 5px;
+    font-weight: 300;
+    color: var(--color-white);
+}
+.snip1336 h2 span {
+    display: block;
+    font-size: 0.5em;
+    color: #2980b9;
+}
+.snip1336 p {
+    margin: 0 0 10px;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    color: var(--color-white);
+}
+
+/* archives - cart (카트 버튼 누른 NFT 보이는 부분)*/
+.cf:before,.cf:after {content: " ";display: table;}
+.cf:after {clear: both;}
+.cf {*zoom: 1;}
+
+.wrap {
+    width: 75%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 5% 0;
+    margin-bottom: 5em;
+}
+.heading {
+  padding: 1em 0;
+  border-bottom: 1px solid var(--color-violet-1);
+}
+.heading h1 {
+    font-size: 2em;
+    float: left;
+}
+a.continue:link , a.continue:visited {
+    text-decoration: none;
+    letter-spacing: -.015em;
+    font-size: .75em;
+    padding: 1em;
+    color: #fff;
+    background: var(--color-violet-3);
+    font-weight: bold;
+    border-radius: 50px;
+    float: right;
+    text-align: right;
+    transition : all, .25s, linear;
+}
+a.continue:after {
+    content: "\276f";
+    padding: .5em;
+    position: relative;
+    right:0;
+    transition : all, .15s, linear;
+}
+a.continue:hover , a.continue:focus, a.continue:active {
+    background: #f69679;    
+}
+a.continue:hover:after, a.continue:focus:after, a.continue:active:after {
+    right: -10px;
+}
+
+.cart {
+    padding: 1em 0 ;
+}
+.items {
+    display: inline;
+    vertical-align: middle;
+    width: 100%;
+    padding: 1.5em;
+    margin: auto;
+}
+.cartWrap{
+    display: inline-block;
+    justify-content: center;
+}
+.cart.items.infoWrap {
+    display: table;
+    width: 100%;
+}
+.cartSection {
+    display: table-cell;
+    vertical-align: middle;
+}
+.cartSection.itemNumber {
+    font-size: .75em;
+    color: var(--color-black);
+    margin-bottom: .5em;
+}
+.cartSection h3 {
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .025em;
+}
+.cartSection p {
+    display: inline-block;
+    font-size: .85em;
+    color: var(--color-black);
+}
+.cartSection p.stockStatus {
+    color: #f30;
+    font-weight: bold;
+    padding: .5em 0 1em 1em;
+    text-transform: uppercase;
+}
+.itemImg {
+    width: 12em;
+    float: left;
+}
+.cartSection.prodTotal img{
+    width: 4em;
+    float: right;
+}
+.cartSection.prodTotal p{
+    font-weight: bold;
+    font-size: 1.25em;
+}
+a.remove {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    background: var(--color-violet-3);
+    padding: .5em;
+    font-size: .75em;
+    display: inline-block;
+    border-radius: 100%;
+    line-height: .85;
+    transition: all, .25s, linear;
+}
+a.remove:hover {
+    background: #f30;
+}
+.promoCode {
+    border:2px solid #efefef;
+    float: left;
+    width: 35%;
+    padding: 2%;
+}
+.promoCode label {
+    display: block;
+    width: 100%;
+    font-style: italic;
+    font-size: 1.15em;
+    margin-bottom: .5em;
+    letter-spacing: -.025em;
+}
+.btn.promoCode{
+   font-size: .85em;
+   padding: .5em 2em;
+}
+.btn:link , .btn:visited {
+    text-decoration: none;
+    letter-spacing: -.015em;
+    font-size: 1em;
+    padding: 1em 3em;
+    color: #fff;
+    background: var(--color-violet-3);
+    font-weight: bold;
+    border-radius: 50px;
+    float: right;
+    text-align: right;
+    transition: all, .25s, linear;
+}
+.btn:link:after, .btn:visited:after {
+    content: "\276f";
+    padding: .5em;
+    position: relative;
+    right:0;
+    transition: all, .15s, linear;
+}
+.btn:link:after:hover , .btn:link:after:focus, .btn:link:after:active {
+    background: #f69679;
+}
+.btn:link:after:hover:after , .btn:link:after:focus:after, .btn:link:after:active:after {
+    right: -10px;
+}
+.btn:visited:after:hover , .btn:visited:after:focus, .btn:visited:after:active {
+    background: #f69679;
+}
+.btn:visited:after:hover:after , .btn:visited:after:focus:after, .btn:visited:after:active:after {
+    right: -10px;
+}
+.subtotal {
+    float: right;
+    width: 35%;
+}
+.totalRow {
+    padding: .5em;
+    text-align: right;
+}
+.totalRow.final {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.subtotal.totalRow span {
+    display: inline-block;
+    padding: 0 0 0 1em;
+    text-align: right;   
+}
+.subtotal.totalRow.label {
+   font-size: .85em;
+   text-transform: uppercase;
+   color: #777;
+}
+.subtotal.totalRow.value { 
+    letter-spacing: -.025em;
+    width: 35%;
+}
+
+/* archives - buy and sell (보유 중인 NFT 보이는 부분)*/
+.nft__container{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    margin: auto;
+    
+}
+.check__txt_1{
+    font-size: var(--font-medium);
+    color : var(--textColor);
+    line-height: 150px;
+
+    --textColor : var(--color-pink-1);
+}
+.check__txt_2{
+    font-size: var(--font-medium);
+    color : var(--textColor);
+    line-height: 150px;
+
+    --textColor : var(--color-pink-1);
+}
+.check__txt_1[data-filter='ON STOCK']{
+    font-size: var(--font-medium);
+    color : var(--textColor);
+    line-height: 150px;
+
+    --textColor : var(--color-light-white);
+}
+.check__txt_2[data-filter='ON SALE']{
+    font-size: var(--font-medium);
+    color : var(--textColor);
+    line-height: 150px;
+
+    --textColor : var(--color-light-white);
+}
+.check__container{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150px;
+}
+.check__container input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+.check__container label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 100px;
+	height: 50px;
+	background: var(--color-pink-1);
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+.check__container label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 40px;
+	height: 40px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 320ms;
+}
+.check__container input:checked + label {
+	background: var(--color-pink-1);
+}
+.check__container input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+.check__container label:active:after {
+	width: 130px;
+}
+.check__txt[data-filter='ON STOCK']{
+    color : var(--textColor);
+}
+.check__txt[data-filter='ON SALE']{
+    color : var(--textColor);
+}
+.input__price{
+    margin-top: 5px;
+    width:80px;
+}
+.sell__btn, .cancle__btn, .confirm__btn{
+    font-size: var(--font-micro);
+    font-weight: var(--weight-semi-bold);
+    color: #fff;
+    background: var(--color-violet-3);
+    margin-left: 10px;;
+    margin-right: 20px;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+.sell__btn:hover, .cancle__btn:hover, .confirm__btn:hover{
+    background: var(--color-pink-1);
+}
+
+/* 모달창 */
+.page-wrapper {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+.blur-it {
+    filter: blur(4px);
+}
+.modal-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+.modal-wrapper.open {
+    opacity: 1;
+    visibility: visible;
+}
+.modal {
+    width: 300px;
+    height: 222px;
+    display: block;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%,-50%);
+    transition: all 0.5s ease-in-out;
+}
+.modal-wrapper.open .modal {
+    margin-top: -200px;
+    opacity: 1;
+}
+.modal__head { 
+    width: 100%;
+    height: 55px;
+    padding: 10px 30px;
+    overflow: hidden;
+    background: var(--color-pink-1);
+    border-radius: 10px 10px 0 0;
+}
+.btn-close {
+    font-size: 28px;
+    display: block;
+    float: right;
+    color: #fff;
+    cursor: pointer;
+}
+.modal__content {
+    background: url("img/forest_night.png") center/cover no-repeat;
+    padding: 10%;
+    text-align: center;
+    color: var(--color-pink-1);
+    border-radius: 0 0 10px 10px;
+}
+
+/* 관리자페이지 - 회원리스트  */
+h1.memboard{
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+table.memboard{
+    width:100%;
+    table-layout: fixed;
+}
+.tbl-header{
+    background-color: rgba(255,255,255,0.3);
+}
+.tbl-content{
+    height:300px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+.tbl-header th{
+    padding: 20px 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: var(--font-micro);
+    background-color: var(--color-violet-3);
+    color: #fff;
+    text-transform: uppercase;
+}
+.tbl-content td{
+    padding: 15px;
+    text-align: center;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+.tbl-bg{
+    background: url(img/Cloud_night.png) center/cover no-repeat;
+    opacity: 0.8;
+}
+.tbl-btns{
+    display: flex;
+    justify-content: space-between;
+}
+.tbl-content button{
+    font-size: var(--font-micro);
+    font-weight: var(--weight-semi-bold);
+    color: #fff;
+    background: var(--color-violet-3);
+    margin: 5px;
+    padding: 5px 13px;
+    border-radius: 10px;
+}
+.tbl-content button:hover{
+    background: var(--color-pink-1);
+}
+
+/* 관리자페이지 - 승인  */
+.appr__btn{
+    font-size: var(--font-micro);
+    font-weight: var(--weight-semi-bold);
+    color: #fff;
+    background: var(--color-violet-3);
+    margin-left: 10px;;
+    margin-right: 20px;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+.appr__btn:hover{
+    background: var(--color-pink-1);
+}
+
+/* 전체 nft 조회 화면 - 좌측 필터 부분*/
+.with-filter{
+    width: 100%;
+    display: flex;
+    background-color: var(--color-pink-1);
+}
+.left__container {
+    float: left;
+	width: 300px;
+    background-color: var(--color-pink-2);
+}
+.left__container > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+ul.dropdown-menu > li{
+    background: var(--color-grey);
+}
+ul.dropdown-menu > li:hover{
+    background: var(--color-light-grey);
+}
+ul.dropdown-menu > li label{
+	display: inline-block;
+	margin-right: 10px; 
+}
+
+
+.search__btn{
+    font-size: var(--font-micro);
+    font-weight: var(--weight-semi-bold);
+    color: #fff;
+    background: var(--color-violet-3);
+    margin-top: 10px;
+    margin-left: 10px;;
+    margin-right: 20px;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+.search__btn:hover{
+    background: var(--color-pink-1);
+}
+.filter__title {
+    text-align: center;
+    line-height: 1.4;
+    color: var(--color-light-white);
+    background-color: var(--color-pink-2);
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+.filter__dropdown a { text-decoration: none; }
+.filter__dropdown li { list-style: none; }
+.filter__dropdown [data-toggle="dropdown"]{
+    position: relative;
+	display: block;
+	color: white;
+	background: var(--color-pink-2);
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+	padding: 10px;
+}
+.filter__dropdown [data-toggle="dropdown"]:hover {
+    background: var(--color-pink-1);
+}
+.icon-arrow {
+    position: absolute;
+    display: block;
+    font-size: 0.7em;
+    color: #fff;
+    top: 14px;
+    right: 10px;
+}
+.icon-arrow.open{
+    transform: rotate(-180deg);
+    transition: transform .6s;
+}
+.icon-arrow.close{
+    transform: rotate(0deg);
+	transition: transform .6s;
+}
+.filter__dropdown.dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.filter__dropdown.dropdown-menu li{
+    padding: 0;
+}
+.filter__dropdown.dropdown-menu li input, .dropdown-menu li label{
+    display: block;
+	color: var(--color-white);
+	background: var(--color-grey);
+    text-shadow: 0 -1px 0 rgba(255,255,255,0.3);
+	padding: 10px 10px;
+}
+.filter__dropdown.dropdown-menu li input:hover, .dropdown-menu li label:hover{
+    background: var(--color-light-grey);
+}
+.show, .hide {
+    transform-origin: 50%, 0%;
+}
+.show {
+    display: block;
+    max-height: 9999px;
+    transform: scaleY(1);
+    animation: showAnimation .5s ease-in-out;
+    transition: max-height 1s ease-in-out;
+}
+.hide {
+    max-height: 0;
+    transform: scaleY(0);
+    animation: hideAnimation .4s ease-out;
+    transition: max-height .6s ease-out;
+}
+@keyframes showAnimation {
+	0% { transform: scaleY(0.1);}
+	40% { transform: scaleY(1.04);}
+	60% { transform: scaleY(0.98);}
+	80% { transform: scaleY(1.04);}
+	100% { transform: scaleY(0.98);}				
+	80% { transform: scaleY(1.02);}
+	100% { transform: scaleY(1);}
+}
+@keyframes hideAnimation {
+    0% { transform: scaleY(1);}
+    60% { transform: scaleY(0.98);}
+    80% { transform: scaleY(1.02);}
+    100% { transform: scaleY(0);}
+}
+
+/* 전체 nft 조회 화면 - 우측 nft 리스트 */
+.about__right-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 20px 0;
+}
+.about__right-container button{
+    height: 20px;
+    width: 50px;
+    margin-left: 5px;
+    font-size: var(--font-medium);
+}
+.about__right-container button:hover{
+    background: var(--color-white);
+    color: var(--color-pink-1);
+}
+
+/* 전체 nft 조회 화면 - 우측 nft 리스트 (결과값 출력) */
+input.quicksearch, .output {
+    display: block;
+	line-height: normal;
+    padding: 0px 8px;
+	margin: 0px;
+    border: 1px solid #D6D6D6; /*osv:border*/
+    height: 38px;
+    line-height: 38px;
+    min-width: 400px;
+    margin: 10px;
+}

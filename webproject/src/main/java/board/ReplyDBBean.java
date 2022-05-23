@@ -7,8 +7,8 @@ import DB.SqlMapClient;
 public class ReplyDBBean implements ReplyDao{
 	
 	//댓글들 가져오기
-	public List<ReplyDataBean> getReplys(int number) {
-		return SqlMapClient.getSession().selectList("DB.getReplys",number);
+	public List<ReplyDataBean> getReplys(ReplyVO dto) {
+		return SqlMapClient.getSession().selectList("DB.getReplys",dto);
 	}
 	
 	//댓글 등록
@@ -41,8 +41,18 @@ public class ReplyDBBean implements ReplyDao{
 	//대댓글 삭제시
 	public void deleteReply(int re_no) {
 		SqlMapClient.getSession().delete("DB.deleteReply",re_no);
-		
 	}
+	
+	//댓글 수정시
+	public void modifyReply(ReplyDataBean dto) {
+		SqlMapClient.getSession().update("DB.modifyReply",dto);
+	}
+	
+	//댓글 개수 가져오기
+	public int getReplyCount(int board_no) {
+		return SqlMapClient.getSession().selectOne("DB.getReplyCount",board_no);
+	}
+	
 }
 
 

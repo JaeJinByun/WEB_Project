@@ -10,9 +10,8 @@ import DB.SqlMapClient;
 public class BoardDBBean implements BoardDao{
 	
 	//글 개수 받아오기
-	public int getCount() {
-		String sql = "select count(*) from board";
-		return SqlMapClient.getSession().selectOne("DB.getCount",sql);
+	public int getCount() {		
+		return SqlMapClient.getSession().selectOne("DB.getCount");
 	}
 	
 	//페이징처리

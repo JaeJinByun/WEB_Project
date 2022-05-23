@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ReplyDao {
 	/* 게시글 별 댓글 가져오기  */
-	public List<ReplyDataBean> getReplys(int number); //글번호 주고 댓글들 가져오기
+	public List<ReplyDataBean> getReplys(ReplyVO dto); 
 	/* 댓글 등록 */
 	public void addReply(ReplyDataBean dto);
 	/* 댓글 그룹안에서 순서 가져오기 */
@@ -17,4 +17,10 @@ public interface ReplyDao {
 	public void deleteReplyP(int re_no);
 	/* 대댓글 삭제 */
 	public void deleteReply(int re_no);
+	/* 댓글 수정*/
+	public void modifyReply(ReplyDataBean dto);
+	/* 게시글 안에 댓글 개수 가져오기 */
+	public int getReplyCount(int board_no);
+	/* 댓글 페이징 처리*/
+	
 }

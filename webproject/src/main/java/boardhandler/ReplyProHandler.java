@@ -23,8 +23,10 @@ public class ReplyProHandler implements Commandhandler{
 	public ModelAndView Process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		
-		String number = request.getParameter("number");
+		String bnumber = request.getParameter("bnumber");
 		String pageNum = request.getParameter("pageNum");
+		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		
 		/*  reply     = 댓글 내용   
 		 *  sessionid = 작성자 아이디
 		 *  boardnum  = 게시글 번호
@@ -44,7 +46,7 @@ public class ReplyProHandler implements Commandhandler{
 		replyDao.addReply(dto);
 		
 		
-		return new ModelAndView("redirect:content.do?num="+board_no+"&pageNum="+pageNum+"&number="+number);
+		return new ModelAndView("redirect:content.do?num="+board_no+"&pageNum="+pageNum+"&bnumber="+bnumber+"&currentPage="+currentPage);
 	}
 	
 	
@@ -81,7 +83,7 @@ public class ReplyProHandler implements Commandhandler{
 	
 	@RequestMapping("/views/replyDeletePro.do")
 	public void RreplyDeletePro(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ReplyDataBean dto = new ReplyDataBean();
+		
 		//모댓글인지 대댓글인지 구별 ㄱ
 		
 		int re_no = Integer.parseInt(request.getParameter("re_no"));
@@ -92,6 +94,20 @@ public class ReplyProHandler implements Commandhandler{
 		}else {
 			replyDao.deleteReply(re_no);
 		}
+		
+	}
+	
+	@RequestMapping("/views/modifyreplyPro.do")
+	public void ModifyreplyPro(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	
+		ReplyDataBean dto = new ReplyDataBean();
+		int re_no = Integer.parseInt(request.getParameter("re_no"));
+		String re_content = request.getParameter("re_content");
+		
+		dto.setRe_no(re_no);
+		dto.setRe_content(re_content);
+		
+		replyDao.modifyReply(dto);
 		
 	}
 	

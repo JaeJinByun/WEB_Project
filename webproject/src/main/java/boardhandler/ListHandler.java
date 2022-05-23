@@ -28,7 +28,7 @@ public class ListHandler implements Commandhandler{
 		
 		
 			int count = 0; 
-			int size = 10;	//한 페이지에 size개씩
+			int size = 7;	//한 페이지에 size개씩
 			int start = 0;
 			int end = 0;
 			String pageNum = null;	//페이지넘버

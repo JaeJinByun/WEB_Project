@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="setting.jsp" %>
-<link href="${project}/style_list.css" rel="stylesheet" type="text/css">
+<link href="${project}/test.css" rel="stylesheet" type="text/css">
 <script src="${project}/script.js"></script>
 <script src="/webproject/jquery-3.6.0.js"></script>
 
@@ -97,7 +97,7 @@
 	  </div>
 </div>
 <div class="container">
-  <h2>Welcome To Owl Board <a href="writeForm.do" onclick="make(event)">글쓰기</a></h2>
+  <h2>Responsive Tables Using LI <a href="writeForm.do" onclick="make(event)">글쓰기</a></h2>
   	<script>
    			 function make(e) {
    				 if( !<%=session.getAttribute("id")%>){
@@ -148,7 +148,7 @@
   </ul>
   <c:if test="${count gt 0}">
 	<c:if test="${startPage gt pageSize}">
-		<div align="center"><a href="board.do?PageNum=${startPage-pageSize}">[◀]</a>></div>
+		<a href="board.do?PageNum=${startPage-pageSize}">[◀]</a>
 	</c:if>
 	
 	<c:forEach var="i" begin="${startPage}" end="${endPage}" step="${i+1}">
@@ -166,6 +166,39 @@
 </div>
 </body>
 
- 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     

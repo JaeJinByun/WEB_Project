@@ -68,10 +68,12 @@
   	
  <!-- 댓글 --> 	
   	
-	<select id="getReplys"  resultType="board.ReplyDataBean" parameterType="int">
-  		select * from reply where board_no = #{board_no} 
-		start with re_level = 0 
-		connect by prior re_no = grp
+	<select id="getReplys" resultType="board.ReplyDataBean" parameterType="board.ReplyVO">
+	  	SELECT * FROM 
+		( SELECT A.*, ROWNUM AS RNUM, COUNT(*) OVER() AS TOTCNT FROM 
+		( select re_no, re_reg_date, re_content, re_level, id, board_no, grp, grps, dcheck from reply where board_no = #{board_no}
+		start with re_level = 0 connect by prior re_no = grp  ) A ) 
+		WHERE RNUM &gt;= #{start} AND RNUM &lt;= #{end}		
   	</select>
 	
 	<insert id="addReply" parameterType="board.ReplyDataBean">
@@ -99,6 +101,14 @@
   	<delete id="deleteReply">
   		delete from reply where re_no = #{re_no}
   	</delete>
+  	
+  	<update id="modifyReply" parameterType="board.ReplyDataBean">
+  		update reply set re_content = #{re_content} where re_no = #{re_no}
+  	</update>
+  	
+  	<select id="getReplyCount" parameterType="int" resultType="int">
+  		select count(*) from reply where board_no = #{board_no}
+  	</select>
   	
  </mapper>
 
