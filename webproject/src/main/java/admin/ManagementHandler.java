@@ -1,4 +1,6 @@
-package logonhandler;
+package admin;
+
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -10,19 +12,22 @@ import org.springframework.web.servlet.ModelAndView;
 
 import DB.Commandhandler;
 import logon.LogonDao;
+import logon.LogonDataBean;
 
 @Controller
-public class MainHandler implements Commandhandler{
+public class ManagementHandler implements Commandhandler{
 	@Resource
 	private LogonDao logonDao;
 	
-	@RequestMapping("/views/main")
+	
+	@RequestMapping("/views/manage")
 	@Override
 	public ModelAndView Process(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//회원정보 불러오기
 		
+		List<LogonDataBean> dtos = logonDao.getAllmembers();
+		request.setAttribute("dtos", dtos);
 		
-		
-		return new ModelAndView("/views/main");
+		return new ModelAndView("/views/admin/manage");
 	}
-
 }

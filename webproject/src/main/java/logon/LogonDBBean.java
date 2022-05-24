@@ -1,5 +1,7 @@
 package logon;
 
+import java.util.List;
+
 import DB.SqlMapClient;
 
 //DAO = Data Access Object
@@ -34,6 +36,10 @@ public class LogonDBBean implements LogonDao{
 		}	
 		return result;
 	}
+	// 관리자 인지
+	public int adminck(String id) {
+		return SqlMapClient.getSession().selectOne("DB.adminck", id);
+	}
 	
 	//db delete 처리 메소드
 	public int deleteMember(String id) {	
@@ -44,7 +50,10 @@ public class LogonDBBean implements LogonDao{
 	public LogonDataBean getMember( String id ) {
 		return SqlMapClient.getSession().selectOne( "DB.getMember", id );
 	}
-	 	
+	//모든 유저의 정보 가져오기
+	public List<LogonDataBean> getAllmembers(){
+		return SqlMapClient.getSession().selectList("DB.getAllmembers");
+	}
 	//회원 정보 수정
 	public int modifyMember(LogonDataBean dto) { //update 시키기..
 		return SqlMapClient.getSession().update("DB.modifyMember",dto); 

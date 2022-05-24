@@ -27,14 +27,21 @@ public class LoginProHandler implements Commandhandler{
 		
 		int result = logonDao.check(id , passwd);
 		
+		//어드민인지? 0이면 일반회원 1이면 관리자
+		int admin = logonDao.adminck(id);
+		System.out.println(admin);
 		request.setAttribute("result", result);
 		request.setAttribute("id", id);
+		request.setAttribute("admin", admin);
 		
+		//아이디 비번이 맞았을때 
 		if(result == 1) {
 			HttpSession session = request.getSession();
-			session.setAttribute("id", id);			
+			session.setAttribute("id", id);				
 		}
 		
-		return new ModelAndView("/views/loginPro");
+		
+		
+		return new ModelAndView("/views/loginPro");			
 	}
 }

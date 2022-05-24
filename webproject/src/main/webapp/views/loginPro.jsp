@@ -12,6 +12,7 @@
 
 <c:set var="result" value="${requestScope.result}"/>
 <c:set var="id"		value="${requestScope.id}"/>
+<c:set var="admin"  value="${requestScope.admin}"/>
 
 <c:if test="${result eq -1}">
 	<%  //아이디가없다    %>
@@ -32,7 +33,10 @@
 		</script>
 </c:if>
 <c:if test="${result eq 1}">		
-	<% //비밀번호가 같다  %>			
+	<% //비밀번호가 같다  %>
+		<c:if test="${admin eq 1}">
+			<c:redirect url="admin.do"/>
+		</c:if>	
 	<c:redirect url="main.do"/>
 </c:if>
 

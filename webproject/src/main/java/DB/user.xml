@@ -12,10 +12,15 @@
 	<select id="check" parameterType="String" resultType="int">
 		select count(*) from membertest where id=#{id}
 	</select>
+	<select id="adminck" parameterType="String" resultType="int">
+		select adminck from membertest where id=#{id}
+	</select>
 	<select id="getMember" parameterType="String" resultType="logon.LogonDataBean">
 		select * from membertest where id=#{id}
 	</select>
-	
+	<select id="getAllmembers" resultType="logon.LogonDataBean">
+		select * from membertest
+	</select>
 	<delete id ="deleteMember" parameterType="String">
 		delete from membertest where id = #{id}
 	</delete>
