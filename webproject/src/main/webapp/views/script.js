@@ -36,44 +36,25 @@ function setid(id){
 
 //회원가입  - 가입 버튼 
 function inputcheck(){
-	if( !inputform.id.value ){
+	if( !inputform.sign_up_id.value ){
 		alert(idstr);
-		inputform.id.focus();
+		inputform.sign_up_id.focus();
 		return false;
-	}else if( !inputform.passwd.value ){
+	}else if( !inputform.email.value ){
+		alert(emailstr);
+		inputform.email.focus();
+		return false;
+	}else if( !inputform.sign_up_passwd.value ){
 		alert(passwdstr);
-		inputform.passwd.focus();
+		inputform.sign_up_passwd.focus();
 		return false;
-	}else if( inputform.passwd.value != inputform.repasswd.value ){
+	}else if( inputform.sign_up_passwd.value != inputform.sign_up_repasswd.value ){
 		alert( repasswdstr );
-		inputform.repasswd.focus();
+		inputform.sign_up_repasswd.focus();
 		return false;
-	}else if( !inputform.email1.value ){
-		alert(emailstr);
-		inputform.email1.focus();
-		return false;
-	}else if( !inputform.email2.value ){
-		alert(emailstr);
-		inputform.email2.focus();
-		return false;
-	}else if( !inputform.tel1.value ){
+	}else if( !inputform.tel.value ){
 		alert(telstr);
-		inputform.tel1.focus();
-		return false;
-	}else if( !inputform.tel2.value ){
-		alert(telstr);
-		inputform.tel2.focus();
-		return false;
-	}else if( !inputform.tel3.value ){
-		alert(telstr);
-		inputform.tel3.focus();
-		return false;
-	}
-	
-	//아이디 중복확인 했냐?
-	if(inputform.confirm.value =="0"){
-		alert(confirmstr);
-		inputform.id.focus();
+		inputform.tel.focus();
 		return false;
 	}
 }
@@ -94,13 +75,13 @@ function modifycheck(){
 
 
 function logincheck(){
-	if( !loginform.id.value ){
+	if( !loginform.sign_in_id.value ){
 		alert(idstr);
-		loginform.id.focus();
+		loginform.sign_in_id.focus();
 		return false;
-	}else if( !loginform.passwd.value){
+	}else if( !loginform.sign_in_passwd.value){
 		alert( passwdstr );
-		loginform.passwd.focus();
+		loginform.sign_in_passwd.focus();
 		return false;
 	}
 }
@@ -115,32 +96,15 @@ function confirmcheck(){
 	
 }
 
-
-function nexttel2(){
-	if( inputform.tel1.value.length > 2){
-		inputform.tel2.focus();
-	}
-}
-
-function nexttel3(){
-	if( inputform.tel2.value.length > 3){
-		inputform.tel3.focus();
-	}
-	
-}
-
-
-
-
-//아이디 비밀번호 유효성 검사 
+//로그인 할때 아이디 비밀번호 유효성 검사 
 function maincheck() {
-	if( !loginform.id.value ){
+	if( !loginform.sign_in_id.value ){
 		alert(idstr);
-		loginform.id.focus();
+		loginform.sign_in_id.focus();
 		return false;
-	}else if( ! loginform.passwd.value ) {
+	}else if( !loginform.sign_in_passwd.value ) {
 		alert( passwdstr );
-		loginform.passwd.focus();
+		loginform.sign_in_passwd.focus();
 		return false;
 	}
 }

@@ -10,14 +10,23 @@
 
 <!-- 로그인이 안되어있을때  -->
 <c:if test="${sessionScope.id eq null }">
-	<c:redirect url="/views/loginPage.do"/>
+	<script type="text/javascript">
+	//<!--	
+		$(document).ready(
+		function() {
+			alert("로그인을 해주세요.");
+			location.href = "/webproject/views/login.do";
+		});
+	//-->	       
+	</script>
+	
 </c:if>
 
 
 
 <form name="writeForm" method="post" action="writePro.do" onsubmit="return writecheck()">
 	<input type="hidden" name="num" value="${num}">	
-	<table>
+	<table class="table">
 		<tr>
 			<th colspan="2" style="text-align:right">
 				<a href="board.do">${str_list}&nbsp;&nbsp;&nbsp;</a> <!-- 글목록 -->

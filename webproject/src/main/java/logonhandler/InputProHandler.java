@@ -26,35 +26,17 @@ public class InputProHandler implements Commandhandler{
 		request.setCharacterEncoding("utf-8");
 		LogonDataBean dto = new LogonDataBean();
 		
-		dto.setId(request.getParameter("id"));
-		dto.setAdminck(0);
-		dto.setPasswd(request.getParameter("passwd"));
-			
-		/* 전화번호 합쳐서 저장시키기 */
-		String tel = null;
-		String tel1 = request.getParameter("tel1");
-		String tel2 = request.getParameter("tel2");
-		String tel3  = request.getParameter("tel3");
-		if(!tel1.equals("") && !tel2.equals("") && !tel3.equals("")){
-			tel = tel1 + "-" + tel2 + "-" + tel3;		
-		}
-		dto.setTel(tel);
-		
-		/* 이메일 합쳐서 저장시키기 */
-		String email = null;
-		String email1 = request.getParameter("email1");
-		String email2 = request.getParameter("email2");
-		email = email1 + "@" + email2;
-		dto.setEmail(email);
-		
-		dto.setCurrency(0);
-		
+		dto.setId(request.getParameter("sign_up_id"));
+		dto.setAdminck(0);    //처음 가입할때 0으로
+		dto.setPasswd(request.getParameter("sign_up_passwd"));	
+		dto.setTel(request.getParameter("tel"));
+		dto.setEmail(request.getParameter("email"));
+		dto.setCurrency(0);	  //재화 0으로 가입
+		int result = logonDao.insertMember(dto);		
+		request.setAttribute("result", result);
+				
 		//DB에 가입한 날짜 넣어주기 테이블에 없어서 빼둠
 //		dto.setReg_date( new Timestamp( System.currentTimeMillis()));	
-		
-		int result = logonDao.insertMember(dto);
-		
-		request.setAttribute("result", result);
 		
 		return new ModelAndView("/views/inputPro");
 	}

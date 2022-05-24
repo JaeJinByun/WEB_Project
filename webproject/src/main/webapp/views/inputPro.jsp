@@ -16,7 +16,7 @@
 		</script>
 </c:if>
 <c:if test="${result ne 0}">	
-	<c:redirect url="main.do"/>
+	<c:redirect url="login.do"/>
 </c:if>
 
 

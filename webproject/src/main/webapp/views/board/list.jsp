@@ -32,7 +32,17 @@
 			    window.location = linkLocation;
 			    }
 			});	
+			$("#write_btn").click(function(){
+				if(!"${sessionScope.id}"){
+					alert("로그인을 해주세요.");
+					window.location.href='/webproject/views/login.do';
+				}else{
+					window.location.href='/webproject/views/writeForm.do';
+				}
 				
+			});
+			
+			
 		});
  
 	//-->
@@ -69,7 +79,7 @@
                 <li class="navbar__menu__item">Collection</li>
                 <li class="navbar__menu__item">My Page</li>
                 <li class="navbar__menu__item" onclick="location='board.do'">Board</li>
-                <li class="navbar__menu__item" onclick="location='loginPage.do'">Sign In</li>
+                <li class="navbar__menu__item" onclick="location='login.do'">Sign In</li>
             </ul>
         </div> 
         </c:if>
@@ -88,23 +98,10 @@
 </div>
 
 <!-- 게시판 -->
-<div class="owl">
-	  <div class="hand"></div>
-	  <div class="hand hand-r"></div>
-	  <div class="arms">
-	    <div class="arm"></div>
-	    <div class="arm arm-r"></div>
-	  </div>
-</div>
+
 <div class="container">
-  <h2>Welcome To Owl Board <a href="writeForm.do" onclick="make(event)">글쓰기</a></h2>
-  	<script>
-   			 function make(e) {
-   				 if( !<%=session.getAttribute("id")%>){
-	        		 alert("로그인을 해주세요.");					 
-   				 }
-    			}
-	</script>
+  <h2>Welcome To Owl Board</h2>
+  
   <ul class="responsive-table">
     <li class="table-header">
       <div class="col col-1">글 번호</div>
@@ -112,7 +109,19 @@
       <div class="col col-3">작성자</div>
       <div class="col col-4">작성일</div>
       <div class="col col-5">조회수</div>
-      <div class="col col-6">IP</div>
+      <div class="col col-6">IP
+      <div class="container2">
+	    <div class="center">
+	      <button class="btn" id="write_btn" >
+	        <svg width="120px" height="40px" viewBox="0 0 180 60" class="border">
+	          <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+	          <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+	        </svg>
+	        <span>글쓰기</span>
+	      </button>
+	    </div>
+  	  </div>
+      </div>
     </li>
     <% //글이 없는 경우%>
     <c:if test="${count eq 0}">
@@ -146,6 +155,7 @@
     	 </c:forEach>
 	</c:if>
   </ul>
+  <div style="text-align:center;">
   <c:if test="${count gt 0}">
 	<c:if test="${startPage gt pageSize}">
 		<div align="center"><a href="board.do?PageNum=${startPage-pageSize}">[◀]</a>></div>
@@ -162,7 +172,8 @@
 	<c:if test="${endPage lt pageCount}">
 		<a href="board.do?pageNum=${startPage+pageSize}">[▶]</a>
 	</c:if>
-</c:if>
+	</c:if>
+	</div>
 </div>
 </body>
 

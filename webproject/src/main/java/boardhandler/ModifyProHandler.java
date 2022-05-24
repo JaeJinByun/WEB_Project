@@ -25,8 +25,7 @@ public class ModifyProHandler implements Commandhandler{
 		
 	//<!-- 넘어오는 데이터 num email, subject, content, passwd -->
 	 	BoardDataBean dto = new BoardDataBean();
-	 	dto.setNum(Integer.parseInt(request.getParameter("num")));
-	 	dto.setEmail(request.getParameter("email"));
+	 	dto.setNum(Integer.parseInt(request.getParameter("num")));	 	
 	 	dto.setSubject(request.getParameter("subject"));
 	 	dto.setContent(request.getParameter("content"));
 	 	dto.setPasswd(request.getParameter("passwd"));

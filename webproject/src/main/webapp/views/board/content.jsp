@@ -102,17 +102,8 @@
 		    	 }
 		    	 
 		      });	
-		     
-		      
-		      
 	      }
 	    });
-	    
-	    
-	    
-	    
-	    
-	    
 	    
 	    /* 취소 버튼 */
 	    $('.btn-cancel-reply').on('click',function(){
@@ -131,9 +122,8 @@
 	
 	//-->
 </script>       
-        
-        
-        
+
+<body>           
 <h2>${page_content}</h2>
 
 <form name="contentForm" method="post" action="replyPro.do" onsubmit="return replyCheck()">
@@ -233,7 +223,7 @@
 				
 				<!-- 대댓글일 경우 -->
 				<c:if test="${rdto.re_level ne 0}">&emsp;&emsp;
-				<img src="/webproject/views/board/replyArrow.png" border="0" width="20">
+				<img src="/webproject/views/img/replyArrow.png" border="0" width="20">
 				<strong> 
 				  	<span class="nickName">${rdto.id}</span>
 				  	(${rdto.re_reg_date})
@@ -317,7 +307,7 @@
 	</tr>
 </table>
 </form>
-
+</body>
 
 
 

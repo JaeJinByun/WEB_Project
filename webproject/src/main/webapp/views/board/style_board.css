@@ -1,109 +1,8 @@
-/* global */
-:root {
-    --color-white: #ffffff;
-    --color-light-white: #eeeeee;
-    --color-dark-white: #bdbdbd;
-    --color-pink: #fe918d;
-    --color-dark-pink: #ff6863;
-    --color-dark-grey: #4d4d4d;
-    --color-grey: #616161;
-    --color-light-grey: #7c7979;
-    --color-blue: #73aace;
-    --color-yellow: #fff7d1;
-    --color-orange: #feb546;
-    --color-black: #000000;
-
-    --color-pink-1 : #e28f90;
-    --color-pink-2 : #cd8796;
-    --color-pink-3 : #9c7596;
-    --color-violet-1 : #6e6b9d;
-    --color-violet-2 : #696293;
-    --color-violet-3 : #5c5689;
-
-
-    --font-large: 48px;
-    --font-medium: 28px;
-    --font-regular: 18px;
-    --font-small: 16px;
-    --font-micro: 14px;
-
-    --weight-bold: 700;
-    --weight-semi-bold: 600;
-    --weight-regular: 400;
-
-    --size-border-radius: 10px;
-
-    --animation-duration: 300ms;
-}
 
 h1,h2,h3,h4,h5,h6
 {
 	color: #4C4C4C;	
 }
-ul{
-    list-style: none;
-    padding-left: 0;
-}
-
-/* 전체 navbar */
-
-#navbar {
-	clear:both;
-    position: fixed;
-	top:0px;	
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: var(--color-violet-3);
-    transition: all var(--animation-duration) ease-in-out;
-    z-index: 1;
-}
-
-#navbar.navbar--trans {
-    background: linear-gradient(#655885, #e39d8d);
-    opacity: 0.8;
-    padding : 0;
-    margin-top: 0;
-}
-#navbar.navbar--trans img {
-    width : 100px;
-    height : 50px;
-    transition: all var(--animation-duration) ease-in-out;
-}
-
-.navbar__logo {
-    font-family: 'PT Serif', serif;
-    font-size: var(--font-large);
-    margin-left: 10%;
-}
-.navbar__menu {
-    display: flex;
-    margin-right: 10%;
-    font-size: 15px;
-    color: black;
-}
-.navbar__menu__item {
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    border-radius: var(--size-border-radius);
-    border: 1px solid transparent;
-}
-.navbar__menu__item.active {
-    color: var(--color-white);
-    border: 2px solid var(--color-violet-1);
-    border-radius: var(--size-border-radius);
-}
-.navbar__menu__item:hover {
-    background-color: var(--color-violet-1);
-    color: var(--color-white);
-    border-radius: var(--size-border-radius);
-    border: 2px solid var(--color-violet-1);
-}
-
-
 
 a {
   font-size: 150%;
@@ -113,13 +12,16 @@ a {
 a:hover {
   font-size: 200%;
 }
+
 .modifyReply { display: none; }
 .commentReply { display: none; }
 
 body
 {
+	margin: 0 auto;
+  	width: 600px;
 	text-align: center;
-	background-image : url('Cloud_night.png');
+	background-image : url('../img/whiteImg.jpg');
 	background-size: cover;
 	font-size:11px;
 	font-family:verdana;
@@ -128,16 +30,8 @@ body
 	padding-top: 70px;
 }
 .table {	
-	border-collapse:collapse;
-	text-align: left;
-	background-color: #ffffff;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size:12px;
-	width : 1000px;
-	margin: 0 auto;
-	border-radius: 16px;
-	box-shadow: inset 0 0 8px #deb13a;
-	border-style: hidden;
+	margin-left: auto;
+	margin-right: auto;	
 }
 
 
@@ -177,19 +71,12 @@ textarea {
 	transform: translateY(-3px);
 	
 }
-tr:nth-child(odd) {
-	background-color:#c0c0c0; 
-	
-}
-tr:nth-child(even) {
-	background-color:#c7c7e2; 
-	
-}
+
 th {
 	text-align: center;
 	color : #000000;
 	font-size : 13px;
-	border : 1px solid #ff00ff;	
+	border : 1px solid #808080;	
 	margin : 0px;
 	padding : 3px;
 	height: 30px;

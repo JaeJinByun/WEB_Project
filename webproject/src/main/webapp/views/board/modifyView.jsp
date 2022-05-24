@@ -17,10 +17,11 @@
 		</script>
 </c:if>
 <c:if test="${result ne 0}">
+	<body>
 	<form name="modifyform" method="post" action="modifyPro.do" onsubmit="return modifycheck()">
 			<input type="hidden" name="num" value="${num}">
 			<input type="hidden" name="pageNum" value="${pageNum}">
-			<table>
+			<table class="table">
 				<tr>
 					<th colspan="2">${msg_modify}</th>
 				</tr>
@@ -30,14 +31,7 @@
 				</tr>
 				<tr>
 					<th>${str_email}</th>
-					<td>
-						<c:if test="${dto.email eq null}">
-							<input class="input" type="text" name="email" maxlength="30" autofocus>
-						</c:if>
-						<c:if test="${dto.email ne null}">
-							<input class="input" type="text" name="email" maxlength="30" value="${dto.email}"autofocus >
-						</c:if>
-					</td>
+					<td>${dto.email}</td>
 				</tr>
 				<tr>
 					<th>
@@ -69,7 +63,7 @@
 				</tr>
 			</table>
 		</form>
-
+	</body>
 </c:if>
 
 

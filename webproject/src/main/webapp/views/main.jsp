@@ -34,7 +34,7 @@
                 <li class="navbar__menu__item">Collection</li>
                 <li class="navbar__menu__item">My Page</li>
                 <li class="navbar__menu__item" onclick="location='board.do'">Board</li>
-                <li class="navbar__menu__item" onclick="location='loginPage.do'">Sign In</li>
+                <li class="navbar__menu__item" onclick="location='login.do'">Sign In</li>
             </ul>
         </div> 
         </c:if>

@@ -54,7 +54,9 @@ public class ListHandler implements Commandhandler{
 			int endPage = startPage + pageSize -1;
 			int pageCount = ( count/size ) + (count % size > 0 ? 1 : 0);
 			if(endPage > pageCount) endPage = pageCount;
-		
+			
+			
+			
 			request.setAttribute("count", count);
 			request.setAttribute("number", number);
 			request.setAttribute("pageNum", pageNum);
@@ -73,7 +75,6 @@ public class ListHandler implements Commandhandler{
 				request.setAttribute("dtos", dtos);
 			}
 			
-		
 		return new ModelAndView("/views/board/list");
 	}
 }

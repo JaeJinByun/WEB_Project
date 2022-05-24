@@ -6,28 +6,45 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import DB.Commandhandler;
 import logon.LogonDao;
 
 @Controller
-public class ConfirmidHandler implements Commandhandler{
+public class ConfirmidHandler{
 	
 	@Resource
 	private LogonDao logonDao;
 
 	@RequestMapping("/views/confirmid")
-	@Override
-	public ModelAndView Process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		String id = request.getParameter("id");		
-		int result = logonDao.check( id );
-		
-		request.setAttribute("result", result);
-		request.setAttribute("id", id);
-		
-		return new ModelAndView("/views/confirmid");
+	@ResponseBody
+	public String idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String id = request.getParameter("user_id");
+		String result = Integer.toString(logonDao.check( id ));
+		// result 가 0 이면 아이디가없다
+		// result 가 1 이면 아이디 존재
+		System.out.println(result);
+		return result;
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

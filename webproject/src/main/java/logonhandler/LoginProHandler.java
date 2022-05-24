@@ -22,8 +22,8 @@ public class LoginProHandler implements Commandhandler{
 	@Override
 	public ModelAndView Process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	
-		String id = request.getParameter("id");
-		String passwd = request.getParameter("passwd");	
+		String id = request.getParameter("sign_in_id");
+		String passwd = request.getParameter("sign_in_passwd");	
 		
 		int result = logonDao.check(id , passwd);
 		

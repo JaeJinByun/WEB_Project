@@ -12,7 +12,7 @@
 <form name="passwdform" method="post" action="deletePro.do">
 	<input type="hidden" name="num" value="${num}">
 	<input type="hidden" name="pageNum" value="${pageNum}">
-	<table>
+	<table class="table">
 		<tr>
 			<th colspan="2">${msg_delete}</th>
 		</tr>

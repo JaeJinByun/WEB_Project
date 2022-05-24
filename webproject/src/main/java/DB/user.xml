@@ -63,11 +63,11 @@
   	</delete>
   	
   	<update id="modifyArticle" parameterType="board.BoardDataBean">
-  		update board set email=#{email, jdbcType=VARCHAR}, subject=#{subject}, content=#{content}, passwd=#{passwd} where num=#{num}
+  		update board set subject=#{subject}, content=#{content}, passwd=#{passwd} where num=#{num}
   	</update>
+  
   	
- <!-- 댓글 --> 	
-  	
+ <!-- 댓글 --> 	  	
 	<select id="getReplys" resultType="board.ReplyDataBean" parameterType="board.ReplyVO">
 	  	SELECT * FROM 
 		( SELECT A.*, ROWNUM AS RNUM, COUNT(*) OVER() AS TOTCNT FROM 

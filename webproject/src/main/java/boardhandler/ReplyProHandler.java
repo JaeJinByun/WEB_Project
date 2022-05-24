@@ -81,6 +81,7 @@ public class ReplyProHandler implements Commandhandler{
 		
 	}
 	
+	//댓글 삭제
 	@RequestMapping("/views/replyDeletePro.do")
 	public void RreplyDeletePro(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
@@ -97,6 +98,7 @@ public class ReplyProHandler implements Commandhandler{
 		
 	}
 	
+	//댓글 수정
 	@RequestMapping("/views/modifyreplyPro.do")
 	public void ModifyreplyPro(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	

@@ -12,9 +12,9 @@ import DB.Commandhandler;
 @Controller
 public class LoginHandler implements Commandhandler{
 
-	@RequestMapping("/views/loginPage")
+	@RequestMapping("/views/login")
 	@Override
 	public ModelAndView Process(HttpServletRequest request, HttpServletResponse response) throws Exception {		
-		return new ModelAndView("/views/loginPage");
+		return new ModelAndView("/views/login");
 	}
 }

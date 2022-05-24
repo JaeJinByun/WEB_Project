@@ -35,7 +35,9 @@
 
     --animation-duration: 300ms;
 }
-
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
 h1,h2,h3,h4,h5,h6
 {
 	color: #4C4C4C;	
@@ -49,7 +51,7 @@ ul{
 
 #navbar {
 	clear:both;
-    position: fixed;
+    
 	top:0px;	
     width: 100%;
     display: flex;
@@ -58,7 +60,7 @@ ul{
     padding: 10px;
     background-color: var(--color-violet-3);
     transition: all var(--animation-duration) ease-in-out;
-    z-index: 1;
+    
 }
 
 #navbar.navbar--trans {
@@ -103,64 +105,9 @@ ul{
     border: 2px solid var(--color-violet-1);
 }
 
-.owl {
-     margin: auto;
-     margin-top: 150px;
-     width: 211px;
-     height: 108px;
-     background-image: url("https://dash.readme.io/img/owl-login.png");
-     position: relative;
-}
- .owl .hand {
-     width: 34px;
-     height: 34px;
-     border-radius: 40px;
-     background-color: #472d20;
-     transform: scaleY(0.6);
-     position: absolute;
-     left: 14px;
-     bottom: -8px;
-     transition: 0.3s ease-out;
-}
- .owl .hand.password {
-     transform: translateX(42px) translateY(-15px) scale(0.7);
-}
- .owl .hand.hand-r {
-     left: 170px;
-}
- .owl .hand.hand-r.password {
-     transform: translateX(-42px) translateY(-15px) scale(0.7);
-}
- .owl .arms {
-     position: absolute;
-     top: 58px;
-     height: 41px;
-     width: 100%;
-     overflow: hidden;
-}
- .owl .arms .arm {
-     width: 40px;
-     height: 65px;
-     background-image: url("https://dash.readme.io/img/owl-login-arm.png");
-     position: absolute;
-     left: 20px;
-     top: 40px;
-     transition: 0.3s ease-out;
-}
- .owl .arms .arm.password {
-     transform: translateX(40px) translateY(-40px);
-}
- .owl .arms .arm.arm-r {
-     left: 158px;
-     transform: scaleX(-1);
-}
- .owl .arms .arm.arm-r.password {
-     transform: translateX(-40px) translateY(-40px) scaleX(-1);
-}
-
 body {
   font-family: "lato", sans-serif;
-  background-image : url('Cloud_night.png');
+  background-image : url('../img/whiteImg.jpg');
   background-size: cover;
 }
 
@@ -187,6 +134,7 @@ h2 small {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  text-align: center;
 }
 .responsive-table .table-header {
   background-color: #95A5A6;
@@ -238,3 +186,65 @@ h2 small {
     text-align: right;
   }
 }
+/* ------------ */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+
+.container2 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 75%;
+  top: 31%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  width: 180px;
+  height: 60px;
+  position: absolute;
+}
+
+.btn {
+  display: block;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #808080;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #808080;
+  stroke-width:5;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover {
+  transition: 1s ease-in-out;
+  background: #808080;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+

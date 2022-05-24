@@ -36,11 +36,10 @@ public class WriteFormHandler implements Commandhandler{
 		//작성자 이메일 뽑아와야함 
 		
 		HttpSession session = request.getSession();
-
-		if(session.getAttribute("id") == null || session.getAttribute("id") == "") {
-			System.out.println("세션 없음");
+		//로그인 안되어 있을때 
+		if(session.getAttribute("id") == null || session.getAttribute("id") == "") {			
 			return new ModelAndView("/views/board/writeForm");
-		
+		//로그인 되어 있을때
 		}else {
 			String id = (String) session.getAttribute("id");
 			dto = logonDao.getMember(id);

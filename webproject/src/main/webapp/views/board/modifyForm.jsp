@@ -7,10 +7,10 @@
        
 <h2>${page_modify}</h2>
 
-<form name="passwdform" method="post" action="modifyView.do">
+<form name="passwdform" method="post" action="modifyView.do" style="align-content: center;">
 	<input type="hidden" name="num" value="${num}">
 	<input type="hidden" name="pageNum" value="${pageNum}">
-	<table>
+	<table class="table">
 		<tr>
 			<th colspan="2">${msg_passwd}</th>
 		</tr>
