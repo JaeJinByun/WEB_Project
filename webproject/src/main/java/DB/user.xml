@@ -18,20 +18,41 @@
 	<select id="getMember" parameterType="String" resultType="logon.LogonDataBean">
 		select * from membertest where id=#{id}
 	</select>
-	<select id="getAllmembers" resultType="logon.LogonDataBean">
-		select * from membertest
-	</select>
-	<delete id ="deleteMember" parameterType="String">
-		delete from membertest where id = #{id}
-	</delete>
-	
 	<update id="modifyMember" parameterType="logon.LogonDataBean">
 		update membertest set passwd=#{passwd}, tel=#{tel,jdbcType=VARCHAR}, email=#{email,jdbcType=VARCHAR} where id = #{id}
 	</update>
 
+<!-- 관리자 -->
 
+	<select id="getMemberCount" resultType="int">
+		select count(*) from membertest 
+	</select>
+
+	<select id="getAllmembers" resultType="logon.LogonDataBean" parameterType="Map">
+		select id, adminck, passwd, tel, email, currency, r 
+				from (select id, adminck, passwd, tel, email, currency, rownum r from 
+				(select id, adminck, passwd, tel, email, currency from membertest order by id) )
+				where r &gt;= #{start} and r &lt;= #{end}
+	</select>
+	
+	<select id="memberSearch" resultType="logon.LogonDataBean" parameterType="Map">
+		select id, adminck, passwd, tel, email, currency, r 
+			from (select id, adminck, passwd, tel, email, currency, rownum r from 
+			(select id, adminck, passwd, tel, email, currency from membertest 
+            where id like  '%' ||  #{id} || '%' order by id) )
+			where r &gt;= #{start} and r &lt;= #{end}
+	</select>
+	<select id="memberSearchCount" resultType="int" parameterType="String">
+		select count(*) from membertest where id like  '%' ||  #{id} || '%' 
+	</select> 
+     <delete id="deleteMember" parameterType="String">
+     	delete from membertest where id = #{id}
+     </delete> 
+     <update id="modifyLevel" parameterType="String">
+     	update membertest set adminck = (case when adminck = 0 then 1 else 0 end) where id = #{id}
+     </update>
       
-      
+     
 <!-- 게시판 -->
   	<select id="getCount" resultType="int">
   		select count(*) from board 

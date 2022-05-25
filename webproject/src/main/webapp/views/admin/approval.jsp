@@ -31,6 +31,7 @@
             </div>
             <div class="navbar__menu">
                 <ul class="navbar__menu">
+                	<li class="navbar__menu__item" onclick="location='main.do'">Home</li>
                     <li class="navbar__menu__item">Collection</li>
                     <li class="navbar__menu__item active">Admin</li>
                     <li class="navbar__menu__item">Board</li>

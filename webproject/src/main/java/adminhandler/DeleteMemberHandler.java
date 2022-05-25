@@ -1,6 +1,4 @@
-package admin;
-
-import java.util.List;
+package adminhandler;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -11,23 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import DB.Commandhandler;
-import logon.LogonDao;
-import logon.LogonDataBean;
+import admin.AdminDao;
 
 @Controller
-public class ManagementHandler implements Commandhandler{
+public class DeleteMemberHandler implements Commandhandler{
 	@Resource
-	private LogonDao logonDao;
+	private AdminDao adminDao;
 	
-	
-	@RequestMapping("/views/manage")
+	@RequestMapping("/views/deleteMember")
 	@Override
 	public ModelAndView Process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//회원정보 불러오기
 		
-		List<LogonDataBean> dtos = logonDao.getAllmembers();
-		request.setAttribute("dtos", dtos);
+		String id = request.getParameter("id");
+		adminDao.deleteMember(id);
 		
-		return new ModelAndView("/views/admin/manage");
+		return new ModelAndView("/views/admin/deletePro");
 	}
 }

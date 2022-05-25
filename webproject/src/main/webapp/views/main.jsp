@@ -28,7 +28,7 @@
             </a>
         </div>
         <!-- 로그인이 안됐을때 -->
-        <c:if test="${sessionScope.id eq null }">
+        <c:if test="${sessionScope.id eq null}">
         <div>
             <ul class="navbar__menu">
                 <li class="navbar__menu__item">Collection</li>
@@ -39,15 +39,27 @@
         </div> 
         </c:if>
         <!-- 로그인이 됐을때 -->
-        <c:if test="${sessionScope.id ne null }">
-        <div>
-            <ul class="navbar__menu">
-                <li class="navbar__menu__item">Collection</li>
-                <li class="navbar__menu__item">My Page</li>
-                <li class="navbar__menu__item" onclick="location='board.do'">Board</li>
-                <li class="navbar__menu__item" onclick="location='logOut.do'">Logout</li>
-            </ul>
-        </div>
+        <c:if test="${sessionScope.id ne null}">
+        	<c:if test="${sessionScope.id eq 'admin'}"><!-- 어드민일때 -->
+        		<div>
+		            <ul class="navbar__menu">
+		                <li class="navbar__menu__item">Collection</li>
+		                <li class="navbar__menu__item" onclick="location='admin.do'">Admin</li>
+		                <li class="navbar__menu__item" onclick="location='board.do'">Board</li>
+		                <li class="navbar__menu__item" onclick="location='logOut.do'">Logout</li>
+		            </ul>
+		        </div>
+        	</c:if>
+        	<c:if test="${sessionScope.id ne 'admin'}">
+		        <div>
+		            <ul class="navbar__menu">
+		                <li class="navbar__menu__item">Collection</li>
+		                <li class="navbar__menu__item">My Page</li>
+		                <li class="navbar__menu__item" onclick="location='board.do'">Board</li>
+		                <li class="navbar__menu__item" onclick="location='logOut.do'">Logout</li>
+		            </ul>
+		        </div>        	
+        	</c:if>
         </c:if>
     </nav>
     <!-- Home -->

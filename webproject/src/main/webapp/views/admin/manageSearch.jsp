@@ -26,7 +26,7 @@
 	            }
 	          });
 			
-			/* 유저 등급 변경 */
+	        /* 유저 등급 변경 */
 	        $("input[name='modify_btn']").click(function () {
 	            var id = $(this).closest("tr").attr("class"); 
 	            
@@ -73,7 +73,7 @@
 	아이디 검색 : <input type="text" id="searchId">
 	<input type="button" name="search_btn" value="검색">
 	</div>
-	<table id="example" class="table table-striped table-bordered" style="margin:0 auto; width:80%; text-align: center;">
+	<table id="example" class="table table-striped table-bordered" style="margin:0 auto;  width:80%; text-align: center;">
 			<thead>
             <tr>
                 <th>아이디</th>
@@ -107,21 +107,28 @@
 		<!-- 페이지 선택 -->
 		<div style="text-align:center;">
 		  <c:if test="${count gt 0}">
-			<c:if test="${startPage gt pageSize}">
-				<div align="center"><a href="manage.do?PageNum=${startPage-pageSize}">[◀]</a>></div>
+			<c:if test="${startPage gt pageSize}"> 
+				<div align="center"><a href="manageSearch.do?id=${id}&PageNum=${startPage-pageSize}">[◀]</a>></div>
 			</c:if>		
 			<c:forEach var="i" begin="${startPage}" end="${endPage}" step="${i+1}">
 				<c:if test="${i eq currentPage}">
 					<b>[${i}]</b>
 				</c:if> 
 				<c:if test="${i ne currentPage}">
-					<a href="manage.do?pageNum=${i}">[${i}]</a>
+					<a href="manageSearch.do?id=${id}&pageNum=${i}">[${i}]</a>
 				</c:if>
 			</c:forEach>
 			<c:if test="${endPage lt pageCount}">
-				<a href="manage.do?pageNum=${startPage+pageSize}">[▶]</a>
+				<a href="manageSearch.do?id=${id}&pageNum=${startPage+pageSize}">[▶]</a>
 			</c:if>
 			</c:if>
 		</div>
 </body>
 </html>
+
+
+
+
+
+
+
