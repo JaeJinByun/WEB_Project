@@ -2,6 +2,8 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 body {
   margin: 0px;
+  background-image: url("adminBackImg.jpg");
+
 }
 nav {
   margin-top: 40px;
@@ -12,17 +14,17 @@ nav {
 }
 
 #nav-1 {
-  background: #3fa46a;
+  background: #808080;
 }
 
 .link-1 {
   transition: 0.3s ease;
-  background: #3fa46a;
+  background: #808080;
   color: #ffffff;
   font-size: 20px;
   text-decoration: none;
-  border-top: 4px solid #3fa46a;
-  border-bottom: 4px solid #3fa46a;
+  border-top: 4px solid #808080;
+  border-bottom: 4px solid #808080;
   padding: 20px 0;
   margin: 0 20px;
   
@@ -32,4 +34,9 @@ nav {
   border-bottom: 4px solid #ffffff;
   padding: 6px 0; 
 }
+
+
+
+
+
 	

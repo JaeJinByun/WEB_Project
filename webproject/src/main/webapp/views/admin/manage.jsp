@@ -6,7 +6,7 @@
 <script type="text/javascript">
 //<!--
 	$(document).ready(function() {
-			
+		
 			/* 아이디 검색 */
 	        $("input[name='search_btn']").click(function () {
 	            var id = $("#searchId").val();
@@ -21,20 +21,44 @@
 	            if(id == 'admin'){
 	            	alert("관리자는 삭제할수 없습니다.");
 	            }else{
-		            location.href = "/webproject/views/deleteMember.do?id=" + id;	    
-		          
+		            location.href = "/webproject/views/deleteMember.do?id=" + id;	   
 	            }
 	          });
 			
 			/* 유저 등급 변경 */
 	        $("input[name='modify_btn']").click(function () {
 	            var id = $(this).closest("tr").attr("class"); 
-	            
+	            if(id == 'admin'){
+	            	alert("관리자는 변경할수 없습니다.");
+	            }else{
+		            $.ajax({
+		                url : '/webproject/views/modifyLevel.do',               
+		                type : 'POST', 
+		                data : {
+		                  id : id
+		                },
+		                success : function(result) { 
+		                    console.log(result);
+		                    location.reload();
+		                },
+		                error : function(error) { // 결과 에러 콜백함수
+		                    console.log(error)
+		                }
+		            })        	
+	            }
+	          });
+			
+			/* 재화 변경 버튼 */
+	        $("input[name='currency_btn']").click(function () {
+	        	var id = $(this).closest("tr").attr("class");
+	            var currency = $(this).closest("tr").find(":input[name='currency']").val();
+	            	            
 	            $.ajax({
-	                url : '/webproject/views/modifyLevel.do',               
+	                url : '/webproject/views/modifyCurrency.do',               
 	                type : 'POST', 
 	                data : {
-	                  id : id
+	                  id : id,
+	                  currency : currency
 	                },
 	                success : function(result) { 
 	                    console.log(result);
@@ -43,15 +67,21 @@
 	                error : function(error) { // 결과 에러 콜백함수
 	                    console.log(error)
 	                }
-	            })
+	            }) 
 	            
-	            //location.href = "/webproject/views/modifyLevel.do?id=" + id;	    
 	          });
-	        
+			
+			
+			
         })
 
 //-->
 </script>
+<!-- 로그인 안되어있을때 + 어드민이 아닐때 -->
+<c:if test="${sessionScope.id eq null}">
+	<c:redirect url="main.do"/>
+</c:if>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -73,7 +103,7 @@
 	아이디 검색 : <input type="text" id="searchId">
 	<input type="button" name="search_btn" value="검색">
 	</div>
-	<table id="example" class="table table-striped table-bordered" style="margin:0 auto; width:80%; text-align: center;">
+	<table id="example" class="table table-striped table-bordered" style="margin:0 auto; width:80%; text-align: center; opacity:1;">
 			<thead>
             <tr>
                 <th>아이디</th>
@@ -98,7 +128,10 @@
 				<td>${dto.passwd}</td>
 				<td>${dto.tel}</td>
 				<td>${dto.email}</td>
-				<td>${dto.currency}</td>
+				<td>
+					<input type="number" value="${dto.currency}" name="currency" min="0" max="9999" step="10"/>
+					<input type="button" name="currency_btn" value="확인">
+				</td>
 				<td><input type="button" id="${dto.id}" name="delete_btn" value="회원 삭제"></td>
 			</tr>
 		</c:forEach>		

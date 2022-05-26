@@ -51,7 +51,9 @@
      <update id="modifyLevel" parameterType="String">
      	update membertest set adminck = (case when adminck = 0 then 1 else 0 end) where id = #{id}
      </update>
-      
+     <update id="modifyCurrency" parameterType="logon.LogonDataBean">
+     	update membertest set currency = #{currency} where id = #{id}
+     </update>
      
 <!-- 게시판 -->
   	<select id="getCount" resultType="int">

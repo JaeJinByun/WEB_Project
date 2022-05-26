@@ -37,5 +37,9 @@ public class AdminDBBean implements AdminDao{
 	public void modifyLevel(String id) {
 		SqlMapClient.getSession().update("DB.modifyLevel",id);	
 	}
+	//재화 수정
+	public void modifyCurrency(LogonDataBean dto) {
+		SqlMapClient.getSession().update("DB.modifyCurrency",dto);
+	}
 	
 }

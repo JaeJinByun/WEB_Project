@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +35,12 @@ public class ManagementHandler implements Commandhandler{
 		String pageNum = null;	//페이지넘버
 		int currentPage = 0;	//현재 페이지
 		int pageSize = 5;		// [1] [2] [3] [4] [5]
+		
+		/*세션값 불러와서 어드민인지 체크*/
+		HttpSession session = request.getSession();
+		System.out.println(session.getAttribute("id"));
+		
+		
 		
 		/* 유저 수 */
 		count = adminDao.getMemberCount();

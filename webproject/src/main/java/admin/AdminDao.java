@@ -18,5 +18,6 @@ public interface AdminDao {
 	public int getmemberSearchCount(String id);   
 	//회원 등급 수정
 	public void modifyLevel(String id);	
-	//회원 등급 가져오기
+	//재화 변경
+	public void modifyCurrency(LogonDataBean dto);
 }

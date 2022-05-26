@@ -30,6 +30,7 @@ public class LoginProHandler implements Commandhandler{
 		//어드민인지? 0이면 일반회원 1이면 관리자
 		int admin = logonDao.adminck(id);
 		System.out.println(admin);
+		
 		request.setAttribute("result", result);
 		request.setAttribute("id", id);
 		request.setAttribute("admin", admin);
