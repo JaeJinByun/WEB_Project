@@ -64,7 +64,7 @@
 	`-- Collection		[콜렉션 DTO,DAO]
 	`-- DB			[myBatis/DB관련 설정]
 	`-- Handler		[나머지 페이지 핸들러]
-    `-- logon		[로그인 DTO,DAO]
+    	`-- logon		[로그인 DTO,DAO]
 	`-- logonhandler	[로그인 페이지 핸들러]
 	`-- nfts		[NFTs DTO,DAO]
 	`-- Property		[카테고리속성 DTO,DAO]
